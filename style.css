@@ -1,159 +1,66 @@
-/* Simpele CSS zonder frameworks. */
-* {
-  box-sizing: border-box;
+/* Rustige basisstijlen zonder externe libraries. */
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #202c3b;
+  background: #f4f6f8;
+  font-synthesis: none;
 }
+
+* { box-sizing: border-box; }
 
 body {
+  min-width: 320px;
+  min-height: 100vh;
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f7fb;
-  color: #17283f;
+  background: radial-gradient(ellipse at top, #eaf0f5 0, #f4f6f8 48rem);
 }
 
-.container {
-  max-width: 740px;
-  margin: 70px auto;
-  padding: 0 20px;
-}
+.container { width: min(100% - 40px, 760px); margin: 72px auto 48px; }
+header { margin-bottom: 30px; }
+.tag { color: #58728d; font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+h1 { margin: 10px 0 8px; color: #172333; font-size: clamp(32px, 6vw, 42px); letter-spacing: -.04em; }
+header p, .hint, .section-heading p { color: #687789; line-height: 1.65; }
+header p { margin: 0; }
 
-header {
-  margin-bottom: 28px;
-}
+.panel { padding: clamp(20px, 5vw, 32px); border: 1px solid #e0e6eb; border-radius: 16px; background: #fff; box-shadow: 0 12px 36px rgba(30, 48, 68, .07); }
+label { display: block; margin-bottom: 10px; color: #29384a; font-size: 14px; font-weight: 650; }
+.input-row { display: flex; gap: 10px; }
+input { flex: 1; min-width: 0; padding: 13px 14px; border: 1px solid #d3dce5; border-radius: 9px; background: #fff; color: #202c3b; font: inherit; transition: border-color .15s, box-shadow .15s; }
+input::placeholder { color: #9aa6b3; }
+input:focus { outline: none; border-color: #587c9e; box-shadow: 0 0 0 3px rgba(88, 124, 158, .16); }
+button { border: 0; border-radius: 9px; padding: 12px 17px; background: #345c7d; color: #fff; font: inherit; font-size: 14px; font-weight: 650; cursor: pointer; transition: background .15s, transform .15s; }
+button:hover:not(:disabled) { background: #284b68; }
+button:active:not(:disabled) { transform: translateY(1px); }
+button:focus-visible { outline: 3px solid rgba(88, 124, 158, .35); outline-offset: 2px; }
+button:disabled { opacity: .5; cursor: not-allowed; }
 
-.tag {
-  color: #1565d8;
-  font-size: 14px;
-  font-weight: bold;
-}
+.saved-section { margin-top: 30px; }
+.section-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+h2 { margin: 0; font-size: 16px; letter-spacing: -.01em; }
+.section-heading p { margin: 5px 0 0; font-size: 13px; }
+.secondary-button { flex: none; border: 1px solid #dce3e9; background: #fff; color: #536477; }
+.secondary-button:hover:not(:disabled) { background: #f2f5f7; }
+.messages-list { display: grid; gap: 8px; margin: 15px 0 0; padding: 0; list-style: none; }
+.messages-list li { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; padding: 11px 12px; border: 1px solid #e5eaee; border-radius: 9px; background: #fbfcfd; }
+.messages-list li span { min-width: 0; overflow-wrap: anywhere; }
+.remove-button { flex: none; padding: 7px 10px; background: transparent; color: #7a5960; font-size: 12px; }
+.remove-button:hover:not(:disabled) { background: #f8eeee; color: #913c49; }
+.empty-state { margin: 14px 0 0; color: #8793a0; font-size: 13px; }
 
-h1 {
-  font-size: 38px;
-  margin: 12px 0;
-}
-
-header p, .hint {
-  color: #566578;
-  line-height: 1.6;
-}
-
-.panel {
-  background: #ffffff;
-  border: 1px solid #e1e8f0;
-  border-radius: 14px;
-  padding: 28px;
-  box-shadow: 0 8px 24px rgba(20, 48, 90, 0.06);
-}
-
-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-
-.input-row {
-  display: flex;
-  gap: 10px;
-}
-
-input {
-  flex: 1;
-  min-width: 0;
-  padding: 13px;
-  border: 1px solid #bdcad9;
-  border-radius: 8px;
-  font: inherit;
-}
-
-input:focus {
-  outline: 2px solid #94bfff;
-  border-color: #1565d8;
-}
-
-button {
-  border: 0;
-  border-radius: 8px;
-  padding: 13px 18px;
-  background: #1565d8;
-  color: white;
-  font: inherit;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #0f4da9;
-}
-
-button:disabled {
-  opacity: 0.6;
-  cursor: wait;
-}
-
-.preview-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin-top: 28px;
-}
-
-h2 {
-  font-size: 16px;
-}
-
-.filename {
-  font-size: 12px;
-  color: #65758b;
-}
-
-pre {
-  margin: 8px 0 18px;
-  padding: 20px;
-  overflow-x: auto;
-  border-radius: 8px;
-  background: #17283f;
-  color: #f0f7ff;
-  font-size: 15px;
-}
-
-.status {
-  margin: 0;
-  font-size: 14px;
-  color: #566578;
-}
-
-.status.success {
-  color: #18733a;
-}
-
-.status.error {
-  color: #ba2525;
-}
-
-.hint {
-  margin-top: 20px;
-  font-size: 14px;
-}
+.preview-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 30px; }
+.filename { color: #7c8997; font-size: 12px; }
+pre { max-height: 260px; margin: 10px 0 18px; padding: 17px; overflow: auto; border: 1px solid #26394c; border-radius: 10px; background: #1d2b39; color: #e3edf5; font: 13px/1.65 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+.status { min-height: 20px; margin: 0; color: #687789; font-size: 13px; }
+.status.success { color: #28734c; }
+.status.error { color: #a43f48; }
+.hint { margin: 18px 2px 0; font-size: 13px; }
 
 @media (max-width: 520px) {
-  .container {
-    margin: 40px auto;
-  }
-
-  h1 {
-    font-size: 30px;
-  }
-
-  .panel {
-    padding: 20px;
-  }
-
-  .input-row {
-    flex-direction: column;
-  }
-
-  .preview-header {
-    align-items: flex-start;
-    flex-direction: column;
-  }
+  .container { width: min(100% - 28px, 760px); margin: 38px auto 28px; }
+  .input-row { flex-direction: column; }
+  .input-row button { width: 100%; }
+  .section-heading { align-items: flex-start; }
+  .messages-list li { align-items: flex-start; }
+  .preview-header { align-items: flex-start; flex-direction: column; }
 }

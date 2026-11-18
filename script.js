@@ -15,6 +15,7 @@ function updatePreview() {
 
 function renderMessages() {
   messagesList.replaceChildren();
+  document.getElementById("emptyState").hidden = messages.length > 0;
   messages.forEach((message, index) => {
     const item = document.createElement("li");
     const text = document.createElement("span");
