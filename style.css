@@ -1,0 +1,159 @@
+/* Simpele CSS zonder frameworks. */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #17283f;
+}
+
+.container {
+  max-width: 740px;
+  margin: 70px auto;
+  padding: 0 20px;
+}
+
+header {
+  margin-bottom: 28px;
+}
+
+.tag {
+  color: #1565d8;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 38px;
+  margin: 12px 0;
+}
+
+header p, .hint {
+  color: #566578;
+  line-height: 1.6;
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid #e1e8f0;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 8px 24px rgba(20, 48, 90, 0.06);
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid #bdcad9;
+  border-radius: 8px;
+  font: inherit;
+}
+
+input:focus {
+  outline: 2px solid #94bfff;
+  border-color: #1565d8;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 13px 18px;
+  background: #1565d8;
+  color: white;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0f4da9;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+.filename {
+  font-size: 12px;
+  color: #65758b;
+}
+
+pre {
+  margin: 8px 0 18px;
+  padding: 20px;
+  overflow-x: auto;
+  border-radius: 8px;
+  background: #17283f;
+  color: #f0f7ff;
+  font-size: 15px;
+}
+
+.status {
+  margin: 0;
+  font-size: 14px;
+  color: #566578;
+}
+
+.status.success {
+  color: #18733a;
+}
+
+.status.error {
+  color: #ba2525;
+}
+
+.hint {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+@media (max-width: 520px) {
+  .container {
+    margin: 40px auto;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+
+  .preview-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

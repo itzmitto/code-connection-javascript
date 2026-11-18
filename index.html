@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Connection</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <span class="tag">JavaScript leerproject</span>
+      <h1>Code Connection</h1>
+      <p>Typ een bericht en sla het op in een echt JavaScript-bestand.</p>
+    </header>
+
+    <section class="panel">
+      <form id="messageForm">
+        <label for="messageInput">Jouw bericht</label>
+        <div class="input-row">
+          <input id="messageInput" name="message" type="text" maxlength="200"
+                 placeholder="Bijvoorbeeld: Hallo123" autocomplete="off" required>
+          <button id="saveButton" type="submit">Opslaan</button>
+        </div>
+      </form>
+
+      <div class="preview-header">
+        <h2>Voorbeeld van de code</h2>
+        <span class="filename">generated-message.js</span>
+      </div>
+      <pre><code id="codePreview"></code></pre>
+
+      <p id="status" class="status" role="status" aria-live="polite">
+        Voer een bericht in en klik op Opslaan.
+      </p>
+    </section>
+
+    <p class="hint">Open <strong>generated-message.js</strong> in VS Code.
+      Na het opslaan zie je de nieuwe tekst in dat bestand.</p>
+  </main>
+
+  <!-- Dit bestand wordt automatisch door de server aangepast. -->
+  <script src="generated-message.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
